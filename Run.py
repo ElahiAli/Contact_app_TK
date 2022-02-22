@@ -50,9 +50,14 @@ def registerbuttoncomm():
 def regi_s():
     if len(username_text.get()) != 0:
         if len(password_text.get()) >= 4:
-            backend.insert_user(username_text.get(),password_text.get())
-            frame1.destroy()
-            frame2.pack(padx=125,pady=90)
+            users = backend.search_user(username_text.get(),password_text.get())
+            if users != []:
+                frame1.destroy()
+                frame2.pack(padx=125,pady=90)
+            else:
+                backend.insert_user(username_text.get(),password_text.get())
+                frame1.destroy()
+                frame2.pack(padx=125,pady=90)
 
 #login button root page
 def loginbuttoncomm():
