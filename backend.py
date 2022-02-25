@@ -45,10 +45,10 @@ def insert(username,name,lastname,phonenumber):
     conn.commit()
     conn.close()
 
-def view():
+def view(username):
     conn = sqlite3.connect("contacts.db")
     cur = conn.cursor()
-    cur.execute("SELECT * FROM contact")
+    cur.execute("SELECT * FROM contact WHERE username=?",(username,))
     rows = cur.fetchall()
     conn.close()
     return rows

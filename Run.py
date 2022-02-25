@@ -103,7 +103,7 @@ def get_selected_row(event):
 #view button
 def view_command():
     clear()
-    contacts = backend.view()
+    contacts = backend.view(username_log_text.get())
     fill_list(contacts)
 
 #search button
